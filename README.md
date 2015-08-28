@@ -1,5 +1,7 @@
 # Scrubba: Clean your strings!
 
+[![Build Status](https://travis-ci.org/jmdeldin/scrubba.svg)](https://travis-ci.org/jmdeldin/scrubba)
+
 Scrubba is a tiny gem to strip and normalize whitespace. It provides a few convenient methods for working with ActiveRecord/ActiveModel/ActiveAttr/ActiveNode attributes too.
 
 ## Installation
