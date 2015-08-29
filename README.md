@@ -38,7 +38,7 @@ In an ActiveRecord model:
 require "scrubba"
 
 class Post < ActiveRecord::Base
-  extend Scrubba::ActiveMethods
+  include Scrubba::ActiveMethods
 
   strip :title, :body
   normalize :title

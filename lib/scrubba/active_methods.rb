@@ -1,18 +1,22 @@
 module Scrubba
   module ActiveMethods
-    def scrub(*keys)
-      before_validation do
-        keys.each do |k|
-          self[k] = Scrubba.scrub(self[k]) if self[k].present?
-        end
+    def self.included(base)
+      base.extend(ClassMethods)
+    end
+
+    def scrubba_apply(keys, func)
+      keys.each do |k|
+        self[k] = Scrubba.public_send(func, self[k]) if self[k].present?
       end
     end
 
-    def normalize(*keys)
-      before_validation do
-        keys.each do |k|
-          self[k] = Scrubba.normalize(self[k]) if self[k].present?
-        end
+    module ClassMethods
+      def scrub(*keys)
+        before_validation { scrubba_apply(keys, :scrub) }
+      end
+
+      def normalize(*keys)
+        before_validation { scrubba_apply(keys, :normalize) }
       end
     end
   end

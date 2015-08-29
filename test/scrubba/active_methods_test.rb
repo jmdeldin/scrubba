@@ -5,7 +5,7 @@ require "active_model"
 class FakeModel
   include ActiveModel::Model
   include ActiveModel::Validations::Callbacks
-  extend Scrubba::ActiveMethods
+  include Scrubba::ActiveMethods
 
   scrub :title, :body
   normalize :title
