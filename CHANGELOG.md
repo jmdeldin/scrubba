@@ -1,4 +1,4 @@
-# Unreleased
+# 0.2.0 (2015-08-29)
 
 - Switched from `extend` to `include` for consistency with gems and
   DRY-er code
