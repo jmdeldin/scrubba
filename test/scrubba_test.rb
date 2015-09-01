@@ -13,7 +13,14 @@ class ScrubbaScrubTest < Minitest::Test
 
   def test_spaces
     assert_equal "foo", Scrubba.scrub("  foo  \n\t")
+  end
+
+  def test_unicode_non_breaking_space
     assert_equal "foo", Scrubba.scrub(" foo ")
+  end
+
+  def test_unicode_em_space
+    assert_equal "foo", Scrubba.scrub(" foo  ")
   end
 
   def test_orig_str_ref
