@@ -30,16 +30,16 @@ class ScrubbaScrubTest < Minitest::Test
   end
 end
 
-class ScrubbaNormalizeTest < Minitest::Test
+class ScrubbaCollapseTest < Minitest::Test
   def test_nil
-    assert_nil Scrubba.normalize(nil)
+    assert_nil Scrubba.collapse(nil)
   end
 
-  def test_normalizes_newlines
-    assert_equal " foo bar", Scrubba.normalize(" \t\n\r foo \n \n bar")
+  def test_collapses_newlines
+    assert_equal " foo bar", Scrubba.collapse(" \t\n\r foo \n \n bar")
   end
 
-  def test_normalizes_unicode_spaces
-    assert_equal " foo bar", Scrubba.normalize(" foo bar")
+  def test_collapses_unicode_spaces
+    assert_equal " foo bar", Scrubba.collapse(" foo bar")
   end
 end

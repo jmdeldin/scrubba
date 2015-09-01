@@ -15,8 +15,8 @@ module Scrubba
         before_validation { scrubba_apply(keys, :strip) }
       end
 
-      def normalize(*keys)
-        before_validation { scrubba_apply(keys, :normalize) }
+      def collapse(*keys)
+        before_validation { scrubba_apply(keys, :collapse) }
       end
     end
   end

@@ -15,7 +15,7 @@ module Scrubba
   #
   # @param [String] str
   # @return [String]
-  def self.normalize(str)
+  def self.collapse(str)
     str.gsub(/[[:space:]]+/, " ") if str
   end
 end
