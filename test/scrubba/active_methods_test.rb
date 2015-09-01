@@ -7,10 +7,10 @@ class FakeModel
   include ActiveModel::Validations::Callbacks
   include Scrubba::ActiveMethods
 
-  strip :title, :body
-  normalize :title
+  scrub :title, :slug, strip: true, collapse: true
+  scrub :body, strip: true
 
-  attr_accessor :title, :body
+  attr_accessor :title, :body, :slug
 
   # these methods are provided by ActiveRecord & ActiveAttr -- implemented
   # here so we don't need another dev dependency
@@ -25,13 +25,14 @@ end
 
 class ActiveMethodsTest < Minitest::Test
   def test_strip
-    f = FakeModel.new(title: " foo bar ", body: "blah blah blah. ")
+    f = FakeModel.new(title: " foo bar ", slug: " space", body: "blah blah. ")
     f.valid?
     assert_equal "foo bar", f.title
-    assert_equal "blah blah blah.", f.body
+    assert_equal "space", f.slug
+    assert_equal "blah blah.", f.body
   end
 
-  def test_normalize
+  def test_collapse
     f = FakeModel.new(title: " foo \t\n   bar ", body: "blah\n\nblah. ")
     f.valid?
     assert_equal "foo bar", f.title
