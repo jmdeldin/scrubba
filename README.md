@@ -49,6 +49,8 @@ end
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jmdeldin/scrubba.
 
+Protip: If you use Emacs, insert Unicode spaces in your test data with <kbd>M-x insert-char</kbd> and verify it with <kbd>M-x describe-char</kbd>.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
