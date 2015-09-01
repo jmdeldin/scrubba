@@ -7,7 +7,7 @@ module Scrubba
   #
   # @param [String] str
   # @return [String]
-  def self.scrub(str)
+  def self.strip(str)
     str.gsub(/(\A[[:space:]]+|[[:space:]]+\z)/, "") if str
   end
 

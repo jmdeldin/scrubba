@@ -7,7 +7,7 @@ class FakeModel
   include ActiveModel::Validations::Callbacks
   include Scrubba::ActiveMethods
 
-  scrub :title, :body
+  strip :title, :body
   normalize :title
 
   attr_accessor :title, :body

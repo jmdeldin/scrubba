@@ -11,8 +11,8 @@ module Scrubba
     end
 
     module ClassMethods
-      def scrub(*keys)
-        before_validation { scrubba_apply(keys, :scrub) }
+      def strip(*keys)
+        before_validation { scrubba_apply(keys, :strip) }
       end
 
       def normalize(*keys)
