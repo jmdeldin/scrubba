@@ -1,4 +1,4 @@
-# Unreleased
+# 0.3.0 (2015-09-01)
 
 - *BREAKING CHANGE*: `scrub` and `normalize` have been renamed to
   `strip` and `collapse` based on usage and feedback
