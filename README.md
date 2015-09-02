@@ -28,8 +28,8 @@ Standalone:
 require "scrubba"
 
 some_str = " foo \t bar "
-Scrubba.scrub(some_str) #=> "foo \t bar"
-Scrubba.normalize(some_str) #=> " foo bar "
+Scrubba.strip(some_str) #=> "foo \t bar"
+Scrubba.collapse(some_str) #=> " foo bar "
 ```
 
 In an ActiveRecord model:
@@ -40,14 +40,16 @@ require "scrubba"
 class Post < ActiveRecord::Base
   include Scrubba::ActiveMethods
 
-  strip :title, :body
-  normalize :title
+  scrub :title, :slug, strip: true
+  scrub :body, collapse: true
 end
 ```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jmdeldin/scrubba.
+
+Protip: If you use Emacs, insert a Unicode space in your test data with <kbd>M-x insert-char</kbd> and verify it with <kbd>M-x describe-char</kbd>.
 
 ## License
 
