@@ -1,4 +1,5 @@
-# coding: utf-8
+# frozen_string_literal: true
+
 require "test_helper"
 require "active_model"
 
@@ -14,12 +15,12 @@ class FakeModel
 
   # these methods are provided by ActiveRecord & ActiveAttr -- implemented
   # here so we don't need another dev dependency
-  def [](k)
-    public_send(k)
+  def [](key)
+    public_send(key)
   end
 
-  def []=(k, v)
-    public_send("#{k}=", v)
+  def []=(key, val)
+    public_send("#{key}=", val)
   end
 end
 

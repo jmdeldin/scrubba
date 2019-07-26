@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "scrubba/version"
 
 module Scrubba
@@ -8,7 +10,7 @@ module Scrubba
   # @param [String] str
   # @return [String]
   def self.strip(str)
-    str.gsub(/(\A[[:space:]]+|[[:space:]]+\z)/, "") if str
+    str&.gsub(/(\A[[:space:]]+|[[:space:]]+\z)/, "")
   end
 
   # Converts and compresses ASCII and Unicode whitespace into single spaces.
@@ -16,6 +18,6 @@ module Scrubba
   # @param [String] str
   # @return [String]
   def self.collapse(str)
-    str.gsub(/[[:space:]]+/, " ") if str
+    str&.gsub(/[[:space:]]+/, " ")
   end
 end

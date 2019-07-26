@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Scrubba
   module ActiveMethods
     def self.included(base)
